@@ -1,0 +1,38 @@
+#user first name
+first_name = input("Enter First Name Here:")
+
+#user last name
+last_name = input("Enter Last Name Here: ")
+
+#current year
+current_year = input("Enter Current Year Here: ")
+
+#user birth year
+birth_year = input("Enter Birth Year Here: ")
+print(" ")
+
+#user current age
+age = int(current_year) - int(birth_year)
+
+#user full name
+full_name = (first_name + " " + last_name)
+
+#print statement
+print("Hello ", full_name, "\nYou are currently ", age)
+print(" ")
+
+
+#user age next year
+print(f"Next year you will be {age + 1} ")
+print(" ")
+print("____________________________")
+
+#completion print
+print("Completed by, Gregary Coplan")
+print("____________________________")
+
+
+
+
+#some of the extra prints are used purely for aesthetic purposes while actually running
+
