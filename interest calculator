@@ -1,0 +1,72 @@
+#beginning print w instructions
+print("Welcome to the interest calculator!")
+print("Input your numbers, than press enter until you've reached your required amount of years!")
+print("The calculator will tell you exactly what to do to proceed!")
+print("The calculator will continue until your desired amount of time, and also allows you to restart the month with the current value.")
+
+#investment var and check     
+investment = float(input("Enter Investment Amount Here: "))
+
+while investment < 1 or investment > 49999 :
+     print(f"You entered {investment}, try a number between 0 and 50000")
+     investment = float(input("Enter Investment Amount Here: "))
+
+        
+print(f"You entered {investment}!")
+
+
+#interest var and check   
+interest_rate = float(input("Enter Interest Rate Here: "))
+
+while interest_rate < 1 or interest_rate > 14 :
+     print(f"You entered {interest_rate}%, try a number between 0 and 15")
+     interest_rate = float(input("Enter Interest Amount Here: "))
+
+print(f"You entered {interest_rate}%")    
+
+
+#years var and check
+years = int(input("Enter Amount Of Years Investing Here: "))
+    
+while years < 1 :
+     print(f"You entered {years}, try a number larger than 0")
+     years = int(input("Enter Amount Of Years Investing Here: "))
+
+print(f"You entered {years}!")     
+
+
+#calculations for loop
+interest_monthly = float(interest_rate / 12 / 100)
+months = years * 12
+future_total = investment + months
+print(f"Your monthly interest is {interest_monthly}.")
+
+#settings for while loop
+year = 0
+stop = "stop"
+total = float(investment)
+new_month = 0
+count = 0
+while stop.lower() != "":
+          for new_month in range(1, months + 1):
+               investment_interest = float(total) * float(interest_monthly)
+               float(investment_interest)
+               total += total * interest_monthly
+               print(f"Month {new_month} is worth {total:.2f}")
+               if input("Press stop to restart the month counter from month 1 with current value: ") == stop :
+                    print("You have restarted the month counter")
+                    break           
+               elif new_month == 12 : #elif for adding a year
+                    year += 1
+                    print(f"You've reached a full year, your total value is {total:.2f} after {year} years")
+                    print("Press Enter to continue, press stop to restart the month counter from month 1: ")
+                    new_month == 0
+                    break
+               elif year > years - 1: #elif for ending
+                    print("You have reached the end of your timeline.")
+                    print(f"Your original investment was {investment}")
+                    print(f"Your original interest rate was {interest_rate}")
+                    print(f"Your amount of time was for {years} years")
+                    print(f"Your total after {years} years was {total:.2f}")
+                    print("Completed by, Gregary Coplan")
+                    break
