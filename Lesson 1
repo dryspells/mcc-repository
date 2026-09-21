@@ -1,0 +1,21 @@
+>>> "hello"
+'hello'
+>>> hi = "hello"
+>>> hi = hello
+Traceback (most recent call last):
+ File "<stdin>", line 1, in <module>
+NameError: name 'hello' is not defined
+>>> 43 = 85
+ File "<stdin>", line 1
+SyntaxError: cannot assign to literal
+>>> 3 + 7
+10
+>>> 5=1
+ File "<stdin>", line 1
+SyntaxError: cannot assign to literal
+>>> 5 == 1
+False
+>>> 5 == 5
+True
+>>> print("Completed by, Quinn Coplan")
+Completed by, Quinn Coplan
