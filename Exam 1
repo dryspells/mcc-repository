@@ -1,0 +1,52 @@
+#loop to restart
+while True:
+    
+        #rng plus start and guess counter
+        from random import randrange
+        print("Welcome. This is a numbers game. \nIn this game, you have to guess \na random number between 0 and 100.")
+        print("Good luck...")
+        rng = randrange(0, 100)
+        guess_count = 0
+        won = False
+        
+        #main block doing guesses
+        while guess_count <= 9 :
+            guess = input("Enter your guess here: ")            
+            if int(guess) == rng :
+                guess_count += 1
+                print(f"Congratulations! You won in {guess_count} guesses.")
+                won = True
+                break
+                        
+            elif int(guess) > rng :
+                print("The number is lower.")
+                guess_count += 1
+                print(f"You've used {guess_count} guesses")
+                continue
+
+            elif int(guess) < rng :
+                print("The number is higher.")
+                guess_count += 1
+                print(f"You've used {guess_count} guesses")
+                continue
+
+        if not won:
+            print("You ran out of guesses.")
+            print(f"The correct number was {rng}")
+            
+                
+        #restarter
+        restart = input("Would you like to restart? (y/n) : ").lower().strip()
+        if restart == "y" :
+            print("restarting now")
+            continue
+
+        else:
+            print("oh.. ok i guess...")
+            break
+
+#ending text        
+print("It seem's you've met an unfortunate fate.")
+print("By 'fate', I mean the game has ended.")
+print("Completed by Gregary Coplan")
+
