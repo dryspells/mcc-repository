@@ -1,0 +1,58 @@
+from random import randrange
+
+
+def main():
+    print("Welcome to Rock, Paper, Scissors!")
+    continue_playing = "y"
+
+    while continue_playing == "y":
+        user_weapon = get_users_weapon()
+        opponent_weapon = get_opponents_weapon()
+
+        weapon_names = {1: "Rock", 2: "Paper", 3: "Scissors"}
+        print(f"You chose: {weapon_names[user_weapon]}")
+        print(f"Your opponent chose: {weapon_names[opponent_weapon]}")
+        determine_winner(user_weapon, opponent_weapon)
+
+        continue_playing = input("Would you like to play again? (y/n): ").strip().lower()
+        while continue_playing not in ("y", "n"):
+            continue_playing = input("Please enter y or n: ").strip().lower()
+
+
+def get_users_weapon():
+    print("Choose your weapon:")
+    print("1. Rock")
+    print("2. Paper")
+    print("3. Scissors")
+
+    while True:
+        try:
+            weapon = int(input("Enter the number of your choice: "))
+        except ValueError:
+            print("Please enter 1, 2, or 3.")
+            continue
+
+        if weapon in (1, 2, 3):
+            return weapon
+        print("Please enter 1, 2, or 3.")
+
+
+def get_opponents_weapon():
+    return randrange(1, 4)
+
+
+def determine_winner(user_weapon, opponent_weapon):
+    if user_weapon == opponent_weapon:
+        print("The game has resulted in a tie.")
+    elif (
+        (user_weapon == 1 and opponent_weapon == 3)
+        or (user_weapon == 2 and opponent_weapon == 1)
+        or (user_weapon == 3 and opponent_weapon == 2)
+    ):
+        print("You win!")
+    else:
+        print("Your opponent wins!")
+
+
+if __name__ == "__main__":
+    main()
