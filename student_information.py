@@ -1,0 +1,52 @@
+#student information; gpa, id, credits and grades
+def main():
+    students = {}
+    #loop to add multiple students
+    while True:
+        print("Student Information")
+        name = input("Enter student name: ")
+        students[name] = {}
+        students[name]["ID"] = input("Enter student ID: ")
+        students[name]["Credits"] = float(input("Enter number of credits: "))
+        students[name]["GPA"] = float(input("Enter GPA: "))
+        students[name]["Grades"] = input("Enter grades separated by a comma: ").split(",")
+        continue_input = input("Do you want to enter another student? (yes/no): ")
+        if continue_input.lower() == "no":
+            break
+    
+    #student name printer
+    print("Printing student names...")
+    for name in students:
+        print(name)
+    
+    #student information printer
+    print("Printing student information...")
+    for name, info in students.items():
+        print(f"Name: {name} \t ID: {info['ID']} \t Credits: {info['Credits']} \t GPA: {info['GPA']} \t Grades: {', '.join(info['Grades'])}")
+    
+    #student remover
+    print("Removing last student...")
+    last_student = list(students.keys())[-1]
+    students.pop(last_student)
+
+    #updated student information printer
+    print("Printing updated student information...")
+    for name, info in students.items():
+        print(f"Name: {name} \t ID: {info['ID']} \t Credits: {info['Credits']} \t GPA: {info['GPA']} \t Grades: {', '.join(info['Grades'])}")
+
+    #GPA grabber
+    print("Accessing student GPA...")
+    for name in students:
+        get_gpa = input(f"Do you want to get {name}'s GPA? (yes/no): ")
+        if get_gpa.lower() != "no":
+            print(f"{name}'s GPA is: {students[name]['GPA']}")
+        
+    #student information clearer
+    print("Clearing all student information...")
+    students.clear()
+    print("All student information cleared.")
+    print("students dictionary:", students)
+
+if __name__ == "__main__":
+    main()
+    
