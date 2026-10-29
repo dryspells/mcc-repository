@@ -1,0 +1,60 @@
+import random
+
+# This program creates and logs new employees and their unique ID numbers with if statements to check for duplicates and blank names and appends them to the list.
+def create_employee(employees, employee_ids, employee_names):
+    while True:
+        name = input("Enter the employee's name: ").strip()
+        matching_names = [
+            existing_name
+            for existing_name in employee_names
+            if existing_name.lower() == name.lower()
+        ]
+        if not name:
+            print("The employee name cannot be blank. Please try again.")
+        elif matching_names:
+            print("That employee is already in the log. Please enter a different name.")
+        else:
+            break
+
+    employee_id = random.randint(1, 500)
+    while employee_id in employee_ids:
+        employee_id = random.randint(1, 500)
+
+    employee = {"name": name, "ID": employee_id}
+    employee_names.append(name)
+    employee_ids.append(employee_id)
+    employees.append(employee)
+
+#Simple return statement to output the employee name and ID number
+def output_employee(employee):
+    return f"Created employee {employee['name']} with ID {employee['ID']}."
+
+#Main function to run the program and call the create_employee function to add employees to the list and output their name and ID number.
+def main():
+    print("This program creates and logs new employees and their unique ID numbers.")
+
+    employees = []
+    employee_ids = []
+    employee_names = []
+#Loop to check for a valid number of employees being added and calls the create_employee function to add them to the list.
+    while True:
+        amount = int(input("How many new employees are being added? "))
+        if amount < 0:
+            print("Please enter zero or a positive number.")
+            continue
+        break
+#Loop to call the create_employee function for the number of employees being added and output their name and ID number.
+    for _ in range(amount):
+        create_employee(employees, employee_ids, employee_names)
+
+    print(employees)
+    for employee in employees:
+        print(output_employee(employee))
+
+    print("Completed by Gregary Coplan")
+
+#Initializes the program and calls the main function to run the program.
+if __name__ == "__main__":
+    main()
+
+#Main added after other functions for ease of access.
